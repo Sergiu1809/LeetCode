@@ -44,4 +44,30 @@ Strings are immutable: sorted() is the only option.
 
 EDGE CASE REFLEX
 Iterating one collection while indexing another?
-Check the lengths first.33
+Check the lengths first.
+
+----------------------------------------------------
+
+HASH MAP: VALUE -> INDEX
+
+When you need to know WHERE, not HOW MANY,
+Store the index as the value
+
+TWO SUM SHAPE
+    for each num:
+        complement = target - num
+        if complement in seen: return [seen[complement], i]
+        seen[num] = i
+
+Insert AFTER the check. The dict then holds only
+elements already passed, so nothing pairs with itself
+
+dict[key] ->KeyError if missing
+dict.get(key) -> None if missing
+key in dict -> safest membership test
+
+FALSY TRAP
+0, "", [], None are all False in an 'if'
+With indices as values, index 0 is falsy, so
+'if seen.get(x):'silently fails on the first element.
+Use 'in' for presence, not truthiness.
